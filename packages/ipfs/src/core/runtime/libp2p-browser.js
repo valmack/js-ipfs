@@ -1,5 +1,6 @@
 'use strict'
 
+const Bootstrap = require('libp2p-bootstrap')
 const WS = require('libp2p-websockets')
 const WebRTCStar = require('libp2p-webrtc-star')
 const Multiplex = require('libp2p-mplex')
@@ -33,13 +34,10 @@ module.exports = () => {
     config: {
       peerDiscovery: {
         autoDial: true,
-        bootstrap: {
+        [Bootstrap.tag]: {
           enabled: true
         },
-        webRTCStar: {
-          enabled: true
-        },
-        websocketStar: {
+        [WebRTCStar.tag]: {
           enabled: true
         }
       },
